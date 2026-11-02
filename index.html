@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bradley Rowan | Fractional Search Advisory & Causal Experimentation</title>
+<meta name="description" content="Fractional technical SEO leadership: causal A/B testing, AI search defence and migration governance. Head of SEO at Rome2Rio; Previously at Viator, SEEK, Envato.">
+<meta property="og:title" content="Bradley Rowan | Fractional Search Advisory">
+<meta property="og:description" content="Causal search experimentation, AI search defence and migration governance, one day a week.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#fff;--surface:#f4f7fc;--ink:#0f172a;--muted:#52607a;--rule:#dde3ee;
+  --accent:#2563eb;--accent-dark:#1d4ed8;--tint:#e8eefc;
+  --night:#0f1d4a;
+  --sans:"Schibsted Grotesk",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--paper);color:var(--ink);line-height:1.6;font-size:17px;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:3px}
+.wrap{width:100%;max-width:1180px;margin:0 auto;padding:0 1.5rem}
+.btn{display:inline-block;background:var(--accent);color:#fff;font-weight:800;font-size:1rem;padding:.9rem 1.6rem;border-radius:999px;text-decoration:none;transition:transform .2s,box-shadow .2s}
+.btn:hover{background:var(--accent-dark);transform:translateY(-2px);box-shadow:0 8px 20px rgba(37,99,235,.28)}
+.btn.ghost{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 1.5px var(--ink)}
+.btn.ghost:hover{background:var(--ink);color:#fff}
+.cta-row{display:flex;flex-wrap:wrap;gap:.75rem;align-items:center}
+
+/* Stage (header + hero) */
+.stage{background:linear-gradient(180deg,#eaf0ff 0,#fff 100%)}
+.top{padding:1.5rem 0}
+.top .wrap{display:flex;justify-content:space-between;align-items:center;gap:1rem}
+.name{font-weight:800;font-size:1.0625rem;text-decoration:none}
+.name small{display:block;font-weight:400;font-size:.8125rem;color:var(--muted)}
+.top .btn{padding:.65rem 1.2rem;font-size:.9rem}
+.hero{padding:2.5rem 0 5rem}
+.hero .wrap{display:grid;gap:3rem;align-items:center}
+.intro{display:flex;align-items:center;gap:1.1rem;margin-bottom:1.75rem}
+.avatar{position:relative;width:88px;height:88px;border-radius:50%;flex:none;background:var(--tint);color:var(--accent-dark);display:grid;place-items:center;font-weight:800;font-size:1.6rem;overflow:hidden;box-shadow:0 0 0 4px #fff,0 0 0 7px var(--accent)}
+.avatar img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.intro p{font-size:.9375rem;color:var(--muted);line-height:1.4}
+.intro strong{display:block;color:var(--ink);font-size:1.0625rem;margin-bottom:.15rem}
+h1{font-size:clamp(2.6rem,7vw,5rem);line-height:1;font-weight:800;letter-spacing:-.045em;margin-bottom:1.5rem}
+.lead{font-size:1.2rem;color:var(--muted);max-width:30em;margin-bottom:2.25rem}
+.lab{background:#fff;border:1px solid var(--rule);border-radius:22px;padding:1.25rem 1.25rem 1rem;box-shadow:0 24px 50px -24px rgba(37,99,235,.35)}
+.lab svg{display:block;width:100%;height:auto}
+.lab figcaption{font-size:.8125rem;color:var(--muted);margin-top:.75rem;display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+.lab .key{display:flex;gap:1rem}
+.lab .key i{display:inline-block;width:.7rem;height:.7rem;border-radius:50%;margin-right:.35rem;vertical-align:-1px}
+.t-axis{font-family:var(--mono);font-size:11px;fill:#52607a}
+.t-lbl{font-family:var(--sans);font-size:12px;font-weight:700;fill:#0f172a}
+.draw{stroke-dasharray:900;stroke-dashoffset:900}
+.band{opacity:0}
+.lab.in .draw{animation:draw 2.2s .2s cubic-bezier(.3,.6,.2,1) forwards}
+.lab.in .band{animation:fade .8s 1.5s forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+@keyframes fade{to{opacity:1}}
+
+/* Credentials */
+.creds{background:var(--accent);color:#fff;padding:1.1rem 0}
+.creds ul{list-style:none;display:flex;flex-wrap:wrap;gap:.4rem 2.25rem;font-weight:800;font-size:1.0625rem;letter-spacing:-.01em;justify-content:center}
+
+section{padding:5.5rem 0}
+h2{font-size:clamp(1.9rem,4.4vw,3rem);line-height:1.05;letter-spacing:-.035em;font-weight:800;max-width:17em}
+.sub{color:var(--muted);max-width:32em;margin-top:1rem;font-size:1.0625rem}
+
+/* Results */
+.grid{display:grid;gap:1rem;margin-top:3rem}
+.res{border-radius:24px;padding:2rem;background:var(--tint);display:flex;flex-direction:column;justify-content:space-between;gap:1.5rem}
+.res.big{background:var(--night);color:#fff}
+.fig{font-size:clamp(3.2rem,8vw,5.5rem);font-weight:800;letter-spacing:-.05em;line-height:.95;color:var(--accent)}
+.res.big .fig{color:#a9c3ff;font-size:clamp(4.5rem,13vw,9rem)}
+.res h3{font-size:1.2rem;letter-spacing:-.02em;line-height:1.3;margin-bottom:.4rem}
+.res p{color:var(--muted)}
+.res.big p{color:#c3d0ee}
+.meta{font-family:var(--mono);font-size:.8125rem;margin-top:.9rem;opacity:.75}
+
+/* Testimonials */
+.quote{background:var(--surface);padding:5.5rem 0}
+.quote .feature{margin-top:3rem}
+.quote .feature blockquote{font-size:clamp(1.35rem,3vw,2rem);line-height:1.3;letter-spacing:-.025em;font-weight:700;max-width:30em;padding-left:1.5rem;border-left:6px solid var(--accent)}
+.who{display:flex;align-items:center;gap:.9rem;font-size:.9375rem;color:var(--muted);line-height:1.4}
+.who strong{display:block;color:var(--ink);font-size:1rem}
+.who a{text-underline-offset:3px}
+.who a:hover{color:var(--accent-dark)}
+.quote .feature .who{margin:1.75rem 0 0 1.5rem}
+.face{position:relative;width:56px;height:56px;border-radius:50%;flex:none;background:var(--tint);color:var(--accent-dark);display:grid;place-items:center;font-weight:800;font-size:1rem;overflow:hidden;box-shadow:0 0 0 3px #fff,0 0 0 5px var(--rule)}
+.face img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;background:#fff}
+.more{display:grid;gap:1rem;margin-top:3rem}
+.more figure{background:#fff;border:1px solid var(--rule);border-radius:24px;padding:2rem;display:flex;flex-direction:column;justify-content:space-between;gap:1.75rem}
+.more blockquote{font-size:1.0625rem;line-height:1.6}
+
+/* Services */
+.svc{display:grid;gap:1rem;margin-top:3rem}
+.svc article{background:var(--surface);border:1px solid var(--rule);border-radius:24px;padding:2rem;border-top:8px solid var(--accent)}
+.svc article:nth-child(2){border-top-color:#7aa2f7}
+.svc article:nth-child(3){border-top-color:var(--night)}
+.svc h3{font-size:1.4rem;letter-spacing:-.02em;line-height:1.2;margin-bottom:.75rem}
+.svc p{color:var(--muted)}
+
+/* Writing */
+.writing{list-style:none;margin-top:2.5rem;border-top:2px solid var(--ink)}
+.writing li{padding:1.35rem 0;border-bottom:1px solid var(--rule);font-weight:700;font-size:1.2rem;letter-spacing:-.01em;max-width:40em}
+
+/* Model */
+.model{background:var(--night);color:#fff}
+.model .sub{color:#b8c4e4}
+.week{display:grid;grid-template-columns:repeat(7,1fr);gap:.4rem;margin:3rem 0 2.5rem}
+.day{aspect-ratio:1/1.15;border-radius:14px;background:#1e2e66;display:flex;align-items:flex-end;justify-content:center;padding:.5rem 0;font-family:var(--mono);font-size:.75rem;color:#8e9cc9}
+.day.on{background:#5b8def;color:#0b1236;font-weight:500;transform:translateY(-10px)}
+.terms{list-style:none;display:grid;gap:1.5rem}
+.terms li{border-top:1px solid #33427a;padding-top:1rem;color:#c9d3ee}
+.terms strong{display:block;color:#fff;font-size:1.0625rem;margin-bottom:.25rem}
+
+/* Out of scope */
+.scope{display:grid;gap:.25rem 3rem;margin-top:2rem;list-style:none;max-width:44rem}
+.scope li{padding:.9rem 0;border-bottom:1px solid var(--rule);color:var(--muted);text-decoration:line-through;text-decoration-color:#9aa8a1}
+
+/* Contact */
+.contact{background:var(--accent);color:#fff;padding:6rem 0}
+.contact :focus-visible,.creds :focus-visible{outline-color:#fff}
+.contact h2{color:#fff;font-size:clamp(2.2rem,6vw,4.2rem);max-width:13em;letter-spacing:-.04em}
+.contact p{margin:1.25rem 0 2rem;max-width:30em;font-size:1.15rem}
+.contact .btn{background:#fff;color:var(--accent-dark)}
+.contact .btn:hover{background:var(--ink);color:#fff}
+.contact .alt{font-weight:700;text-underline-offset:4px}
+footer{padding:1.75rem 0;font-size:.8125rem;color:var(--muted)}
+
+@media(min-width:720px){
+  .svc,.terms{grid-template-columns:repeat(3,1fr);gap:1rem}
+  .terms{gap:2rem}
+  .scope,.more{grid-template-columns:1fr 1fr}
+  .grid{grid-template-columns:1.3fr 1fr}
+  .res.big{grid-row:span 2}
+}
+@media(min-width:960px){.hero .wrap{grid-template-columns:1fr 1.05fr}}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .draw{stroke-dashoffset:0}.band{opacity:1}
+  .lab.in .draw,.lab.in .band{animation:none}
+  .btn{transition:none}
+}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Bradley Rowan",
+  "url": "https://www.bradleyrowan.com",
+  "image": "https://www.bradleyrowan.com/profile.png",
+  "jobTitle": "Head of SEO",
+  "worksFor": {"@type": "Organization", "name": "Rome2Rio"},
+  "address": {"@type": "PostalAddress", "addressLocality": "Sydney", "addressCountry": "AU"},
+  "sameAs": ["https://www.linkedin.com/in/bradley-rowan-12071981"]
+}
+</script>
+</head>
+<body>
+
+<div class="stage">
+  <header class="top">
+    <div class="wrap">
+      <a href="#" class="name">Bradley Rowan<small>Fractional SEO/AEO advisory</small></a>
+      <a href="mailto:bradleyrowan@gmail.com?subject=Booking%20a%2030-minute%20call" class="btn">Book a call</a>
+    </div>
+  </header>
+
+  <section class="hero" style="padding-bottom:5rem">
+    <div class="wrap">
+      <div>
+        <div class="intro">
+          <div class="avatar"><span aria-hidden="true">BR</span><img src="profile.png" alt="Portrait of Bradley Rowan" width="88" height="88" onerror="this.remove()"></div>
+          <p><strong>Head of SEO, Rome2Rio</strong>Sydney, Australia.</p>
+        </div>
+        <h1>Understand what moves organic growth before you ship it.</h1>
+        <p class="lead">Senior technical SEO leadership for travel, marketplace and other large-catalogue platforms: causal A/B testing, insight into how AI search understands and presents your brand, and safe website migrations.</p>
+        <div class="cta-row">
+          <a href="mailto:bradleyrowan@gmail.com?subject=Booking%20a%2030-minute%20call" class="btn">Book a 30-minute call</a>
+        </div>
+      </div>
+
+      <figure class="lab" id="chart">
+        <svg viewBox="0 0 570 330" role="img" aria-label="Illustrative chart: after an SEO change, the treatment group's organic traffic rises above the forecast counterfactual, with a widening 95% confidence interval around the treatment line.">
+          <g stroke="#e3e8f2" stroke-width="1">
+            <line x1="40" y1="60" x2="540" y2="60"/><line x1="40" y1="130" x2="540" y2="130"/>
+            <line x1="40" y1="200" x2="540" y2="200"/><line x1="40" y1="270" x2="540" y2="270"/>
+          </g>
+          <line x1="260" y1="30" x2="260" y2="280" stroke="#0f172a" stroke-width="1.5" stroke-dasharray="4 4"/>
+          <text class="t-lbl" x="268" y="44">Change ships</text>
+          <path d="M40,200 L80,196 L120,203 L160,198 L200,201 L240,197 L260,199 L300,196 L340,201 L380,198 L420,200 L460,197 L500,199 L540,198" fill="none" stroke="#8a96ad" stroke-width="2.5" stroke-linejoin="round" stroke-dasharray="2 6" stroke-linecap="round"/>
+          <polygon class="band" points="260,199 300,178 340,156 380,134 420,120 460,104 500,90 540,80 540,128 500,134 460,144 420,156 380,166 340,180 300,194" fill="#2563eb" fill-opacity=".16"/>
+          <path class="draw" d="M40,201 L80,197 L120,202 L160,199 L200,200 L240,198 L260,199 L300,186 L340,168 L380,150 L420,138 L460,124 L500,112 L540,104" fill="none" stroke="#2563eb" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
+          <g class="band" stroke="#0f172a" stroke-width="1.5">
+            <line x1="552" y1="104" x2="552" y2="198"/><line x1="548" y1="104" x2="556" y2="104"/><line x1="548" y1="198" x2="556" y2="198"/>
+          </g>
+          <text class="t-axis" x="40" y="300">Pre-period</text>
+          <text class="t-axis" x="540" y="300" text-anchor="end">Post-period</text>
+          <text class="t-lbl" x="300" y="248" style="fill:#52607a">Forecast without the change</text>
+        </svg>
+        <figcaption>
+          <span class="key"><span><i style="background:#2563eb"></i>Treatment</span><span><i style="background:#8a96ad"></i>Counterfactual</span></span>
+          <span>Illustrative; shaded band is the 95% interval</span>
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+</div>
+
+<div class="creds">
+  <div class="wrap">
+    <ul>
+      <li>Rome2Rio</li><li>Viator (Tripadvisor)</li><li>SEEK</li><li>Envato</li><li>10+ years in engineering and search</li>
+    </ul>
+  </div>
+</div>
+
+<main>
+  <section id="results">
+    <div class="wrap">
+      <h2>Track record</h2>
+      <p class="sub">An engineer first, then a decade-long move into search: building the automation, auditing and testing that in-house SEO teams rely on.</p>
+      <div class="grid">
+        <article class="res big">
+          <div class="fig">100s</div>
+          <div>
+            <h3>SEO A/B tests run</h3>
+            <p>Split tests and causal analyses that proved which changes moved organic traffic before engineering committed to a full rollout.</p>
+            <div class="meta">Travel / Job boards / Medical / Fitness / Non-profit</div>
+          </div>
+        </article>
+        <article class="res">
+          <div class="fig">10+ yrs</div>
+          <div>
+            <h3>Software engineering</h3>
+            <p>Hands-on with the code behind the site, with hundreds of bugs fixed along the way.</p>
+          </div>
+        </article>
+        <article class="res">
+          <div class="fig">10+ yrs</div>
+          <div>
+            <h3>In-house SEO</h3>
+            <p>From SEO engineer to technical SEO team manager to Head of SEO.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials: photos are expected in the same folder as this file. If an image is missing, initials show instead. -->
+  <section class="quote" id="testimonials">
+    <div class="wrap">
+      <h2>What clients say</h2>
+      <p class="sub">Feedback from organisations I’ve advised as an SEO consultant, including pro bono work for a local charity.</p>
+
+      <figure class="feature">
+        <blockquote>“I would recommend Brad if you are looking for someone who never misses the details; his thorough, careful, and measured approach made all the difference to our organisation. The difference became so noticeable because the leads we get coming to our site are at least 3-4 times a day. Previously we had one a week!”</blockquote>
+        <figcaption class="who">
+          <span class="face"><span aria-hidden="true">JL</span><img src="jamie-loveday.webp" alt="Jamie Loveday" width="56" height="56" loading="lazy" onerror="this.remove()"></span>
+          <span><strong>Jamie Loveday</strong><a href="https://www.foodlabsydney.org.au/" rel="noopener">Foodlab Sydney</a></span>
+        </figcaption>
+      </figure>
+
+      <div class="more">
+        <figure>
+          <blockquote>“Working with Bradley has been a very pleasant and rewarding experience for our company. His in-depth knowledge in SEO and Website Structure has help deliver us the right business leads needed for growth. Not only has Bradley help us better position ourselves in the online marketplace, but he has also laid the foundations we needed to move forward with confidence.”</blockquote>
+          <figcaption class="who">
+            <span class="face"><span aria-hidden="true">CA</span><img src="carl-network-brokers.jpeg" alt="Carl Anderson" width="56" height="56" loading="lazy" onerror="this.remove()"></span>
+            <span><strong>Carl Anderson</strong><a href="https://www.networkbrokers.com.au/" rel="noopener">Network Brokers</a></span>
+          </figcaption>
+        </figure>
+        <figure>
+          <blockquote>“I was very lucky to connect with Brad when looking for a volunteer senior SEO specialist! He was not only happy to donate his time and expertise with a local charity, but he also provided tekFoundation with valuable feedback and insights that will help us expand our impact. Thank you Brad!”</blockquote>
+          <figcaption class="who">
+            <span class="face"><span aria-hidden="true">JF</span><img src="joni-f-tek.jpeg" alt="Joni Fleischer" width="56" height="56" loading="lazy" onerror="this.remove()"></span>
+            <span><strong>Joni Fleischer</strong><a href="https://tekfinder.com.au/tekfoundation" rel="noopener">tekFoundation</a></span>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section id="work">
+    <div class="wrap">
+      <h2>Most SEO advice never gets proven or shipped. Mine does both.</h2>
+      <p class="sub">Three areas where I work with executives and engineering to get from hypothesis to measured result.</p>
+      <div class="svc">
+        <article>
+          <h3>Causal search A/B experimentation</h3>
+          <p>Custom Python and R testing models, edge-worker routing and split-testing frameworks that show SEO ROI before full engineering rollout.</p>
+        </article>
+        <article>
+          <h3>AI search and zero-click defence</h3>
+          <p>Assess Zero Click disintermediation risk, structure programmatic entity graphs, and protect brand visibility across conversational search engines.</p>
+        </article>
+        <article>
+          <h3>Technical migration governance</h3>
+          <p>Risk-managed governance for platforms of 1M+ pages, JavaScript rendering architectures and dynamic URL restructures.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="wrap">
+      <h2>How I think about it</h2>
+      <ul class="writing">
+        <li>Prove a template change with a split test before it reaches the whole site.</li>
+        <li>Measure what AI answers take from organic clicks rather than guessing.</li>
+        <li>Shared this approach as a panel speaker at 365 Days of Search, hosted by Preacta.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="model">
+    <div class="wrap">
+      <h2>One day a week, fully focused on your search</h2>
+      <p class="sub">Senior technical SEO guidance with an engineer’s hands-on approach, fitted around your team rather than added to it.</p>
+      <div class="week" role="img" aria-label="A work week with one highlighted advisory day">
+        <div class="day">Mon</div><div class="day">Tue</div><div class="day on">Wed</div><div class="day">Thu</div><div class="day">Fri</div><div class="day">Sat</div><div class="day">Sun</div>
+      </div>
+      <ul class="terms">
+        <li><strong>Clear, written direction</strong>Audits, test plans and technical specs your engineers can pick up and ship, with quick answers on Slack in between.</li>
+        <li><strong>Built, not just advised</strong>I set up the automation, reporting and SEO A/B tests myself, so you get working tools as well as recommendations.</li>
+        <li><strong>Regular check-ins</strong>A fortnightly roadmap review with your leadership to agree priorities and review what the tests showed.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2>What I don't do</h2>
+      <ul class="scope">
+        <li>Manual link building or press outreach</li>
+        <li>Generic keyword research dumps</li>
+        <li>Content copywriting or article drafting</li>
+        <li>Automated 3rd party SEO tool audits</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="wrap">
+      <h2>Make your search growth measurable.</h2>
+      <p>Taking on a small number of one-day-a-week retainers. Remote and asynchronous, working in Sydney time (AEST).</p>
+      <div class="cta-row">
+        <a href="mailto:bradleyrowan@gmail.com?subject=Booking%20a%2030-minute%20call" class="btn">Book a 30-minute call</a>
+        <a href="https://www.linkedin.com/in/bradley-rowan-12071981" class="alt" rel="noopener" target="_blank">or connect on LinkedIn</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer><div class="wrap">&copy; 2026 Bradley Rowan. All rights reserved.</div></footer>
+
+<script>
+(function(){
+  var el=document.getElementById('chart');
+  if(!el)return;
+  if(!('IntersectionObserver' in window)){el.classList.add('in');return;}
+  var io=new IntersectionObserver(function(e){
+    if(e[0].isIntersecting){el.classList.add('in');io.disconnect();}
+  },{threshold:.35});
+  io.observe(el);
+})();
+</script>
+</body>
+</html>
